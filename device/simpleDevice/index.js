@@ -19,7 +19,7 @@ const customLightDevice = neeoapi.buildDevice('Simple Buttons')
 
   // Then we add the capabilities of the device
   .addButton({ name: 'button-a', label: 'Button A' })
-  .addButton({ name: 'butten-b', label: 'Button B' })
+  .addButton({ name: 'button-b', label: 'Button B' })
   .addButtonHander(controller.onButtonPressed);
 
 console.log('- discover one NEEO Brain...');

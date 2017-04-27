@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.36.0",
+  "version": "0.37.2",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "server:complex": "node device/discoverableLightDevice/index.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
     "release": "npm run jshint && npm run clean && npm run release:copy",
-    "release:copy": "cp -r ./device ./recipe ./dist && cp .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
+    "release:copy": "cp -r ./{device,recipe} ./dist && cp .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
   },
   "devDependencies": {
     "jshint": "^2.9.4"

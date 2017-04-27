@@ -9,8 +9,10 @@ const BluePromise = require('bluebird');
 
 const UPDATE_FREQUENCY_MS = 2000;
 const COMPLEX_DEVICE_SLIDER_NAME = 'power-slider';
+const COMPLEX_DEVICE_TEXTLABEL_NAME = 'example-text';
 const COMPLEX_DEVICE_UPDATE_ENTRY = 'unique-device-id-001';
 
+let textlabelValue = 'initial value';
 let sliderValue = 50;
 let switchValue = true;
 let sendComponentUpdate;
@@ -47,6 +49,11 @@ module.exports.switchSet = function(deviceid, value) {
 module.exports.switchGet = function(deviceid) {
   console.log('[CONTROLLER] return switch value', deviceid, switchValue);
   return BluePromise.resolve(switchValue);
+};
+
+module.exports.getExampleText = function(deviceid) {
+  console.log('[CONTROLLER] get example text', deviceid);
+  return BluePromise.resolve(textlabelValue);
 };
 
 /**
@@ -141,5 +148,16 @@ setInterval(() => {
     .catch((error) => {
      console.log('failed to send slider notification', error.message);
     });
+
+  textlabelValue = 'Update ' + parseInt(Math.random()*200, 10);
+  const updateTextlabelPayload = {
+   uniqueDeviceId: COMPLEX_DEVICE_UPDATE_ENTRY,
+   component: COMPLEX_DEVICE_TEXTLABEL_NAME,
+   value: textlabelValue
+  };
+  sendComponentUpdate(updateTextlabelPayload)
+   .catch((error) => {
+     console.log('failed to send text notification', error.message);
+   });
 
 }, UPDATE_FREQUENCY_MS);

@@ -8,6 +8,10 @@ To find out more about NEEO, the Brain and "The Thinking Remote" checkout https:
 
 * You must have Node.js v6 installed, see http://nodejs.org
 
+## Getting started
+
+* Run `npm install` to install needed dependencies.
+
 ## Working with NEEO Brain Recipes
 
 One way to use the SDK is to trigger Recipes and fetch information about the Recipes.

@@ -43,12 +43,14 @@ const complexDeviceFull = neeoapi.buildDevice('Complex Device Pro')
 
   .addSwitch({ name: 'pro-switch', label: 'Pro power-saving mode' },
     { setter: controller.switchSet, getter: controller.switchGet })
-
+    
   .addButton({ name: 'pro-button', label: 'Pro Bonus Button' })
   .addButton({ name: 'pro-button2', label: 'Pro Bonus Button2' })
   .addButtonHander(controller.button)
 
   .enableDiscovery(discoveryInstructions, controller.discoverProDevices)
+
+  .addTextLabel({ name: 'example-text', label: 'Example Textlabel' }, controller.getExampleText)
 
   .registerSubscriptionFunction(controller.registerStateUpdateCallback);
 
