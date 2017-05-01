@@ -7,7 +7,8 @@
   "private": false,
   "dependencies": {
     "bluebird": "^3.5.0",
-    "neeo-sdk": "*"
+    "neeo-sdk": "*",
+    "lifx-http-api": "^1.0.3"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -17,6 +18,7 @@
     "recipe": "node recipe/listAllRecipes.js",
     "server:simple": "node device/simpleDevice/index.js",
     "server:complex": "node device/discoverableLightDevice/index.js",
+    "server:lifx": "node device/LIFX/index.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
     "release": "npm run jshint && npm run clean && npm run release:copy",
     "release:copy": "cp -r ./{device,recipe} ./dist && cp .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
