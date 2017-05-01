@@ -1,27 +1,33 @@
-/*
- * Quick example for an LIFX light wrote by Geert Wille
- */
-
 'use strict';
 
+/*
+ * Example code for an LIFX light integration wrote by Geert Wille
+ */
 const BluePromise = require('bluebird');
-
-let lifx = require('lifx-http-api');
-let client = new lifx({
-  bearerToken: 'INSERT_ACCESS_TOKEN_HERE' // https://cloud.lifx.com/settings
+const Lifx = require('lifx-http-api');
+const client = new Lifx({
+  bearerToken: '' // https://cloud.lifx.com/settings
 });
+
+const LIFX_ALL_LIGHTS_SELECTOR = 'all';
+const LIFX_LIGHT_OFF = 'off';
+const LIFX_LIGHT_ON = 'on';
 
 let sliderValue = 50;
 let switchValue = true;
-let sendComponentUpdate;
+
+// Helper function
+function getLifxDeviceSelector(deviceId) {
+  return 'id:' + deviceId;
+}
 
 /*
  * Device Controller
  * Events on that device from the Brain will be forwarded here for handling.
  */
-module.exports.onPulse = function (deviceId, name) {
+module.exports.onPulse = function (name, deviceId) {
   // Just randomly pulse the light
-  client.pulse('id:' + name, {
+  client.pulse(getLifxDeviceSelector(deviceId), {
     color: '#' + Math.floor(Math.random() * 16777215).toString(16), // Generate random color
     from_color: '#' + Math.floor(Math.random() * 16777215).toString(16), // Generate random color
     period: 1,
@@ -30,6 +36,13 @@ module.exports.onPulse = function (deviceId, name) {
     power_on: true,
     peak: 0.8
   });
+};
+
+module.exports.allOff = function (name, deviceId) {
+  // Just randomly pulse the light
+  client.setState(LIFX_ALL_LIGHTS_SELECTOR, {
+    power: LIFX_LIGHT_OFF
+  }).then(console.log, console.error);
 };
 
 /**
@@ -42,8 +55,8 @@ module.exports.switchSet = function (deviceId, value) {
   switchValue = value;
 
   // Update LIFX light
-  client.setState('id:' + deviceId, {
-    power: switchValue == 'true' ? 'on' : 'off'
+  client.setState(getLifxDeviceSelector(deviceId), {
+    power: switchValue == 'true' ? LIFX_LIGHT_ON : LIFX_LIGHT_OFF
   }).then(console.log, console.error);
 };
 
@@ -57,7 +70,7 @@ module.exports.sliderSet = function (deviceId, value) {
   sliderValue = value;
 
   // Update LIFX light  
-  client.setState('all', {
+  client.setState(LIFX_ALL_LIGHTS_SELECTOR, {
     brightness: sliderValue / 100
   }).then(console.log, console.error);
 };
@@ -70,13 +83,14 @@ module.exports.sliderGet = function (deviceId) {
 /*
  * Discover all LIFX lights and return them in the proper format
  */
-module.exports.discoverLIFX = function discoverLIFX() {
-  return client.listLights('all')
-    .then((LIFXLights) => {
-      return LIFXLights.map((LIFX) => ({
-        id: LIFX.id,
-        name: LIFX.group.name,
-        reachable: LIFX.reachable
+module.exports.discoverLifx = function () {
+  return client.listLights(LIFX_ALL_LIGHTS_SELECTOR)
+    .then((LifxLights) => {
+      console.info(LifxLights);
+      return LifxLights.map((lifx) => ({
+        id: lifx.id,
+        name: lifx.label,
+        reachable: lifx.reachable
       }));
     })
     .catch((err) => {
