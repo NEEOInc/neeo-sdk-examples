@@ -147,6 +147,7 @@ setInterval(() => {
   sendComponentUpdate(updatePayload)
     .catch((error) => {
      console.log('failed to send slider notification', error.message);
+     console.log('it looks like you didn\'t add a device to the NEEO Brain yet (or you removed it)?');
     });
 
   textlabelValue = 'Update ' + parseInt(Math.random()*200, 10);

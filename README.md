@@ -43,7 +43,7 @@ This example device has:
 1. Start up the device via `npm run server:simple`
 2. Connect to your NEEO Brain in the NEEO app
 3. Go to add device
-4. You should be able to find the example by searching for _NEEO Simple Buttons_
+4. You should be able to find the example by searching for _NEEO Simple Device_
 
 ### Complex example
 
