@@ -7,8 +7,9 @@
   "private": false,
   "dependencies": {
     "bluebird": "^3.5.0",
-    "neeo-sdk": "*",
-    "lifx-http-api": "^1.0.3"
+    "lifx-http-api": "^1.0.3",
+    "debug": "*",
+    "neeo-sdk": "*"
   },
   "engines": {
     "node": ">=6.0.0"
