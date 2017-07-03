@@ -15,11 +15,25 @@ console.log('---------------------------------------------');
 const customLightDevice = neeoapi.buildDevice('Simple Device')
   .setManufacturer('NEEO')
   .addAdditionalSearchToken('foo')
-  .setType('ACCESSOIRE')
+  .setType('TV')
 
   // Then we add the capabilities of the device
   .addButton({ name: 'button-a', label: 'Button A' })
   .addButton({ name: 'button-b', label: 'Button B' })
+  .addButton({ name: 'INPUT HDMI 1' })
+
+  .addButtonGroup('Power')
+  .addButtonGroup('volume')
+  .addButtonGroup('Menu and Back')
+  .addButtonGroup('Controlpad')
+  .addButtonGroup('Channel Zapper')
+
+  //HINT: the next four lines are just to demonstrate how to manually add buttons, you could also use .addButtonGroup('Color Buttons')
+  .addButton({ name: 'FUNCTION RED' })
+  .addButton({ name: 'FUNCTION GREEN' })
+  .addButton({ name: 'FUNCTION YELLOW' })
+  .addButton({ name: 'FUNCTION BLUE' })
+
   .addButtonHander(controller.onButtonPressed);
 
 function startSdkExample(brain) {

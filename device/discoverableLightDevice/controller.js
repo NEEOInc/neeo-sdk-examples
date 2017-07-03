@@ -16,6 +16,7 @@ let textlabelValue = 'initial value';
 let sliderValue = 50;
 let switchValue = true;
 let sendComponentUpdate;
+let counter=0;
 
 /**
  * One button handler for each registered button
@@ -150,7 +151,8 @@ setInterval(() => {
      console.log('it looks like you didn\'t add a device to the NEEO Brain yet (or you removed it)?');
     });
 
-  textlabelValue = 'Update ' + parseInt(Math.random()*200, 10);
+  counter++;
+  textlabelValue = 'Update ' + counter;
   const updateTextlabelPayload = {
    uniqueDeviceId: COMPLEX_DEVICE_UPDATE_ENTRY,
    component: COMPLEX_DEVICE_TEXTLABEL_NAME,

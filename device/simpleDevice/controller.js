@@ -7,4 +7,6 @@
  */
 module.exports.onButtonPressed = function onButtonPressed(name) {
   console.log(`[CONTROLLER] ${name} button pressed`);
+
+  // TODO implement the actions for your device here
 };
