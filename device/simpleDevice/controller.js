@@ -10,3 +10,15 @@ module.exports.onButtonPressed = function onButtonPressed(name) {
 
   // TODO implement the actions for your device here
 };
+
+module.exports.getWizardLabelText = function() {
+  return 'Wingardium Leviosa!';
+};
+
+module.exports.getSmallKittenImageUri = function getSmallKittenImageUri() {
+  return 'https://placekitten.com/g/300/300';
+};
+
+module.exports.getLargeKittenImageUri = function getLargeKittenImageUri() {
+  return 'https://placekitten.com/g/900/900';
+};

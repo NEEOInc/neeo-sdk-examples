@@ -34,6 +34,11 @@ const customLightDevice = neeoapi.buildDevice('Simple Device')
   .addButton({ name: 'FUNCTION YELLOW' })
   .addButton({ name: 'FUNCTION BLUE' })
 
+  .addTextLabel({ name: 'wizard', label: 'Wizard' }, controller.getWizardLabelText)
+
+  .addImageUrl({ name: 'small-kitten-image', label: 'Small Kitten', size: 'small' }, controller.getSmallKittenImageUri)
+  .addImageUrl({ name: 'large-kitten-image', label: 'Large Kitten', size: 'large' }, controller.getLargeKittenImageUri)
+
   .addButtonHander(controller.onButtonPressed);
 
 function startSdkExample(brain) {
