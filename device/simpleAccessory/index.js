@@ -3,7 +3,7 @@
 const neeoapi = require('neeo-sdk');
 const controller = require('./controller');
 
-console.log('NEEO SDK Example "simpleCustomDevice" adapter');
+console.log('NEEO SDK Example "simpleAccessoire" adapter');
 console.log('---------------------------------------------');
 
 /*
@@ -12,33 +12,15 @@ console.log('---------------------------------------------');
  */
 
 // first we set the device info, used to identify it on the Brain
-const customLightDevice = neeoapi.buildDevice('Simple Device')
+const customLightDevice = neeoapi.buildDevice('Simple Accessoire')
   .setManufacturer('NEEO')
   .addAdditionalSearchToken('foo')
-  .setType('TV')
+  .setType('ACCESSOIRE')
 
   // Then we add the capabilities of the device
   .addButton({ name: 'button-a', label: 'Button A' })
   .addButton({ name: 'button-b', label: 'Button B' })
-  .addButton({ name: 'INPUT HDMI 1' })
-
-  .addButtonGroup('Power')
-  .addButtonGroup('volume')
-  .addButtonGroup('Menu and Back')
-  .addButtonGroup('Controlpad')
-  .addButtonGroup('Channel Zapper')
-
-  //HINT: the next four lines are just to demonstrate how to manually add buttons, you could also use .addButtonGroup('Color Buttons')
-  .addButton({ name: 'FUNCTION RED' })
-  .addButton({ name: 'FUNCTION GREEN' })
-  .addButton({ name: 'FUNCTION YELLOW' })
-  .addButton({ name: 'FUNCTION BLUE' })
-
-  .addTextLabel({ name: 'wizard', label: 'Wizard' }, controller.getWizardLabelText)
-
-  .addImageUrl({ name: 'small-kitten-image', label: 'Small Kitten', size: 'small' }, controller.getSmallKittenImageUri)
-  .addImageUrl({ name: 'large-kitten-image', label: 'Large Kitten', size: 'large' }, controller.getLargeKittenImageUri)
-
+  .addButtonGroup('Color Buttons')
   .addButtonHander(controller.onButtonPressed);
 
 function startSdkExample(brain) {
@@ -46,11 +28,11 @@ function startSdkExample(brain) {
   neeoapi.startServer({
     brain,
     port: 6336,
-    name: 'simple-adapter-one',
+    name: 'simple-accessoire-one',
     devices: [customLightDevice]
   })
   .then(() => {
-    console.log('# READY! use the NEEO app to search for "NEEO Simple Device".');
+    console.log('# READY! use the NEEO app to search for "NEEO Accessoire".');
   })
   .catch((error) => {
     //if there was any error, print message out to console

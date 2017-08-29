@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.43.7",
+  "version": "0.45.7",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -17,7 +17,9 @@
     "jshint": "jshint --show-non-errors --verbose device/**/*.js recipe/*.js forwardaction/*.js",
     "server:simple": "node device/simpleDevice/index.js",
     "server:complex": "node device/discoverableLightDevice/index.js",
+    "server:multi": "node device/multipleDevices/index.js",
     "server:lifx": "node device/LIFX/index.js",
+    "server:accessoire": "node device/simpleAccessory/index.js",
     "example:forwardaction": "node forwardaction/index.js",
     "example:recipe": "node recipe/listAllRecipes.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",

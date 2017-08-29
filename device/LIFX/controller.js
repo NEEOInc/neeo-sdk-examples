@@ -30,7 +30,7 @@ function getLifxDeviceSelector(deviceId) {
  * Device Controller
  * Events on that device from the Brain will be forwarded here for handling.
  */
-module.exports.button = function(deviceId, name) {
+module.exports.button = function(name, deviceId) {
  console.log(`[CONTROLLER] ${name} button pressed on ${deviceId}!`);
  switch(name) {
    case 'pulse':

@@ -21,7 +21,7 @@ let counter=0;
 /**
  * One button handler for each registered button
  */
-module.exports.button = function(deviceid, name) {
+module.exports.button = function(name, deviceid) {
   console.log(`[CONTROLLER] ${name} button pressed on ${deviceid}!`);
 };
 

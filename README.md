@@ -35,11 +35,16 @@ __2. the controller__: we use a controller for event handling of the device afte
 
 The "Simple sample" code is located in the [device/simpleDevice](device/simpleDevice) directory.
 
-This example device has:
-* 2 buttons
+__This example device has:__
+* 3 buttons
+* 5 button groups
+* 1 manual button group
 * 1 switch (say on/off)
 * 1 slider (say a dimmer)
+* 1 text label
+* 2 images
 
+__How to run the example:__
 1. Start up the device via `npm run server:simple`
 2. Connect to your NEEO Brain in the NEEO app
 3. Go to add device
@@ -51,9 +56,32 @@ The "Complex sample" code is located in the [device/discoverableLightDevice](dev
 
 If the device requires a manual action before registering it (for example enable the discovery of the device), it's covered with a discovery step.
 
+__This example has 2 devices:__
+* First device has:
+  * 1 slider
+* Second device has:
+  * 1 slider
+  * 1 switch
+  * 2 buttons
+  * 1 text label  
+
+__How to run the example:__
 1. Start up the device via `npm run server:complex`
 2. Connect to your NEEO Brain in the NEEO app
 3. Go to add device
 4. You should be able to find and add the example by searching for _NEEO Complex Device_
 
 When you add that device you can display instructions for that step before it is added on the Brain.
+
+### Multi Device example
+This example demonstrates how to run multiple devices inside a single SDK server instance.  
+The "Multiple Devices sample" code is located in the [device/multipleDevices](device/multipleDevices) directory.
+
+__This example has:__
+* Multiple devices with their own controllers
+
+__How to run the example:__
+1. Start up the example via `npm run server:multi`
+2. Connect to your NEEO Brain in the NEEO app
+3. Go to add device
+4. You should be able to find the devices by searching for _NEEO_, _multiple_, or the respective device names.
