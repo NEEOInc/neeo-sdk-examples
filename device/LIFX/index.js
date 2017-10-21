@@ -27,7 +27,7 @@ const lifxLight = neeoapi.buildDevice('Smart Light') // LIFX LIFX looked weird i
   .addSwitch({ name: 'toggle', label: 'Toggle On/Off' }, { setter: controller.switchSet, getter: controller.switchGet })
   .addButton({ name: 'pulse', label: 'Pulse' })
   .addButton({ name: 'all-off', label: 'All Off' })
-  .addButtonHander(controller.buttonHandler);
+  .addButtonHander(controller.button);
 
 console.log('- discover one NEEO Brain...');
 neeoapi.discoverOneBrain()
