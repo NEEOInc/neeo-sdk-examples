@@ -1,0 +1,20 @@
+﻿#####################################################################################
+# This file will provide mappings between devices and their MAC address/IP addresses
+#
+# The format of the file is
+# Device Name=MACAddress[/IPAddress]
+#
+# 1) (Required) The device name will appear on the NEEO remote
+# 2) (Required) The MAC address to send the WOL packet to
+# 3) (Optional) Slash or space followed by the device IP address
+#
+# If IP Address is specified, the WOL packet is sent directly to it.  If not 
+# specified, the WOL packet will be broadcast to the network
+#
+# Please note that if the MACAddress appears twice (or MAC Address/IP Address combo),
+# the NEEO app will complain of a duplicate when trying to add a device.
+#####################################################################################
+
+Example=01:02:03:04:05:06
+IP Example=01:02:03:04:05:06 192.168.1.111
+IP Example2=01:02:03:04:05:06/192.168.1.112
