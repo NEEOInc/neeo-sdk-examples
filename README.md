@@ -1,4 +1,4 @@
-# NEEO SDK Examples
+# NEEO SDK Examples [![Build Status](https://travis-ci.org/NEEOInc/neeo-sdk-examples.svg?branch=master)](https://travis-ci.org/NEEOInc/neeo-sdk-examples)
 
 You can find the SDK documentation at https://github.com/NEEOInc/neeo-sdk.
 
