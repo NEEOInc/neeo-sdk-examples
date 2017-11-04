@@ -1,32 +1,37 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.45.7",
+  "version": "0.47.8",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
   "private": false,
   "dependencies": {
     "bluebird": "^3.5.0",
+    "lifx-http-api": "^1.0.3",
     "neeo-sdk": "*",
-    "lifx-http-api": "^1.0.3"
+    "node-lifx": "^0.8.0"
   },
   "engines": {
     "node": ">=6.0.0"
   },
   "scripts": {
-    "jshint": "jshint --show-non-errors --verbose device/**/*.js recipe/*.js forwardaction/*.js",
-    "server:simple": "node device/simpleDevice/index.js",
-    "server:complex": "node device/discoverableLightDevice/index.js",
-    "server:multi": "node device/multipleDevices/index.js",
-    "server:lifx": "node device/LIFX/index.js",
-    "server:accessoire": "node device/simpleAccessory/index.js",
-    "example:forwardaction": "node forwardaction/index.js",
-    "example:recipe": "node recipe/listAllRecipes.js",
+    "test": "mocha --exit \"test/**/*.js\"",
+    "jshint": "jshint --show-non-errors --verbose lib/**/*.js",
+    "server:complex": "node lib/device/discoverableLightDevice/index.js",
+    "server:multi": "node lib/device/multipleDevices/index.js",
+    "server:lifx": "node lib/device/lifx-local/index.js",
+    "server:accessoire": "node lib/device/simpleAccessory/index.js",
+    "example:forwardaction": "node lib/forwardaction/index.js",
+    "example:recipe": "node lib/recipe/listAllRecipes.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
     "release": "npm run jshint && npm run clean && npm run release:copy",
-    "release:copy": "cp -r ./{device,recipe,forwardaction} ./dist && cp .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
+    "release:copy": "cp -r ./lib ./dist && cp .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
   },
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "chai": "^4.1.2",
+    "jshint": "^2.9.4",
+    "mocha": "^4.0.1",
+    "mockery": "^2.1.0",
+    "sinon": "^4.0.2"
   }
 }
