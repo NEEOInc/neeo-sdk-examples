@@ -21,7 +21,7 @@ For example:
 * Get a list of recipes
 * Find out which recipes are currently powered on
 
-You can run this example via `npm run recipe`, the sample code is located in [recipe/listAllRecipes.js](recipe/listAllRecipes.js).
+You can run this example via `npm run recipe`, the sample code is located in [lib/recipe/listAllRecipes.js](lib/recipe/listAllRecipes.js).
 
 ## Creating custom devices
 
@@ -33,26 +33,17 @@ __2. the controller__: we use a controller for event handling of the device afte
 
 ### Simple example
 
-The "Simple sample" code is located in the [device/simpleDevice](device/simpleDevice) directory.
-
-__This example device has:__
-* 3 buttons
-* 5 button groups
-* 1 manual button group
-* 1 switch (say on/off)
-* 1 slider (say a dimmer)
-* 1 text label
-* 2 images
+The "Simple sample" code is located in the [lib/device/simpleAccessory](lib/device/simpleAccessory) directory.
 
 __How to run the example:__
-1. Start up the device via `npm run server:simple`
+1. Start up the device via `npm run server:accessoire`
 2. Connect to your NEEO Brain in the NEEO app
 3. Go to add device
-4. You should be able to find the example by searching for _NEEO Simple Device_
+4. You should be able to find the example by searching for _NEEO Simple Accessory_
 
 ### Complex example
 
-The "Complex sample" code is located in the [device/discoverableLightDevice](device/discoverableLightDevice) directory.
+The "Complex sample" code is located in the [lib/device/discoverableLightDevice](lib/device/discoverableLightDevice) directory.
 
 If the device requires a manual action before registering it (for example enable the discovery of the device), it's covered with a discovery step.
 
@@ -75,7 +66,7 @@ When you add that device you can display instructions for that step before it is
 
 ### Multi Device example
 This example demonstrates how to run multiple devices inside a single SDK server instance.  
-The "Multiple Devices sample" code is located in the [device/multipleDevices](device/multipleDevices) directory.
+The "Multiple Devices sample" code is located in the [lib/device/multipleDevices](lib/device/multipleDevices) directory.
 
 __This example has:__
 * Multiple devices with their own controllers
