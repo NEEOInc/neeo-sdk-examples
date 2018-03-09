@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.48.13",
+  "version": "0.49.2",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "jshint": "^2.9.4",
-    "mocha": "^4.0.1",
+    "jshint": "^2.9.5",
+    "mocha": "^5.0.4",
     "mockery": "^2.1.0",
-    "sinon": "^4.0.2"
+    "sinon": "^4.4.2"
   }
 }
