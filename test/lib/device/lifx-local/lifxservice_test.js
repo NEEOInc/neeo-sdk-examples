@@ -5,9 +5,10 @@ const mockery = require('mockery');
 const sinon = require('sinon');
 const LifxMock = require('./lifxmock');
 const requireHelper = require('../../../require_helper.js');
+const LifxService = requireHelper('lib/devices/lifx-local/lifxservice');
 const neeoapi = require('neeo-sdk');
 
-describe('./lib/device/lifx-local/lifxservice.js', function() {
+describe('./lib/devices/lifx-local/lifxservice.js', function() {
   const sandbox = sinon.sandbox.create();
   const ID = '0123deadbeef';
   let lifxService, deviceState;
@@ -23,7 +24,6 @@ describe('./lib/device/lifx-local/lifxservice.js', function() {
     onDuration = undefined;
     offDuration = undefined;
     deviceState = neeoapi.buildDeviceState();
-    const LifxService = requireHelper('lib/device/lifx-local/lifxservice');
     lifxService = new LifxService(deviceState);
   });
 
@@ -59,7 +59,7 @@ describe('./lib/device/lifx-local/lifxservice.js', function() {
   it('should fail when non existant device is requested', function() {
     return lifxService.getBrightness(ID)
       .catch((error) => {
-        expect(error.message).to.equal('NOT_REACHABLE');
+        expect(error.message).to.equal('LIFX_NOT_REACHABLE');
       });
   });
 

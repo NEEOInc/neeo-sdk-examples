@@ -1,14 +1,15 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.48.13",
+  "version": "0.50.3",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
   "private": false,
   "dependencies": {
     "bluebird": "^3.5.0",
+    "glob": "^7.1.2",
     "lifx-http-api": "^1.0.3",
-    "neeo-sdk": "*",
+    "neeo-sdk": "NEEOInc/neeo-sdk#next",
     "node-lifx": "^0.8.0"
   },
   "engines": {
@@ -17,10 +18,7 @@
   "scripts": {
     "test": "mocha --exit \"test/**/*.js\"",
     "jshint": "jshint --show-non-errors --verbose lib/**/*.js",
-    "server:complex": "node lib/device/discoverableLightDevice/index.js",
-    "server:multi": "node lib/device/multipleDevices/index.js",
-    "server:lifx": "node lib/device/lifx-local/index.js",
-    "server:accessoire": "node lib/device/simpleAccessory/index.js",
+    "start": "NEEO_DEVICES_DIRECTORY=\"./lib/devices\" NEEO_DEVICES_EXCLUDED_DIRECTORIES=[\"lifx-cloud\"] neeo-sdk start",
     "example:forwardaction": "node lib/forwardaction/index.js",
     "example:recipe": "node lib/recipe/listAllRecipes.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
@@ -29,9 +27,15 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "jshint": "^2.9.4",
-    "mocha": "^4.0.1",
+    "jshint": "^2.9.5",
+    "mocha": "^5.0.4",
     "mockery": "^2.1.0",
-    "sinon": "^4.0.2"
+    "sinon": "^4.4.2"
+  },
+  "neeoSdkOptions": {
+    "serverName": "myServer",
+    "serverPort": 6336,
+    "brainHost": "",
+    "brainPort": ""
   }
 }

@@ -5,7 +5,7 @@ const mockery = require('mockery');
 const sinon = require('sinon');
 const requireHelper = require('../../../require_helper.js');
 
-describe('./lib/device/lifx-local/lifxcontroller.js', function() {
+describe('./lib/devices/lifx-local/lifxcontroller.js', function() {
   const sandbox = sinon.sandbox.create();
   let lifxController;
   let deviceId, value;
@@ -59,7 +59,7 @@ describe('./lib/device/lifx-local/lifxcontroller.js', function() {
 
     mockery.registerMock('./lifxservice', LifxServiceMock);
 
-    lifxController = requireHelper('lib/device/lifx-local/lifxcontroller');
+    lifxController = requireHelper('lib/devices/lifx-local/lifxcontroller');
     lifxController.initialise();
   });
 

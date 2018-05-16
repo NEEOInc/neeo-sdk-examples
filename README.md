@@ -6,7 +6,7 @@ To find out more about NEEO, the Brain and "The Thinking Remote" checkout https:
 
 ## Prerequisite
 
-* You must have Node.js v6 installed, see http://nodejs.org
+* You must have Node.js v6 (or greater) installed, see http://nodejs.org
 
 ## Getting started
 
@@ -35,12 +35,6 @@ __2. the controller__: we use a controller for event handling of the device afte
 
 The "Simple sample" code is located in the [lib/device/simpleAccessory](lib/device/simpleAccessory) directory.
 
-__How to run the example:__
-1. Start up the device via `npm run server:accessoire`
-2. Connect to your NEEO Brain in the NEEO app
-3. Go to add device
-4. You should be able to find the example by searching for _NEEO Simple Accessory_
-
 ### Complex example
 
 The "Complex sample" code is located in the [lib/device/discoverableLightDevice](lib/device/discoverableLightDevice) directory.
@@ -56,14 +50,6 @@ __This example has 2 devices:__
   * 2 buttons
   * 1 text label  
 
-__How to run the example:__
-1. Start up the device via `npm run server:complex`
-2. Connect to your NEEO Brain in the NEEO app
-3. Go to add device
-4. You should be able to find and add the example by searching for _NEEO Complex Device_
-
-When you add that device you can display instructions for that step before it is added on the Brain.
-
 ### Multi Device example
 This example demonstrates how to run multiple devices inside a single SDK server instance.  
 The "Multiple Devices sample" code is located in the [lib/device/multipleDevices](lib/device/multipleDevices) directory.
@@ -71,8 +57,11 @@ The "Multiple Devices sample" code is located in the [lib/device/multipleDevices
 __This example has:__
 * Multiple devices with their own controllers
 
-__How to run the example:__
-1. Start up the example via `npm run server:multi`
-2. Connect to your NEEO Brain in the NEEO app
-3. Go to add device
-4. You should be able to find the devices by searching for _NEEO_, _multiple_, or the respective device names.
+## Running the examples
+
+The devices are listed and exported in the file `lib/devices/index.js`. They are exported through a `devices` Array in order for them to be available to the CLI. You can change it to remove the devices you don't want to see running or add your own ones.
+To start the SDK instance using the CLI, and register the devices to the first Brain found on the network, run the command:
+
+```
+npm run cli:devices
+```
