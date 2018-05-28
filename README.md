@@ -33,11 +33,11 @@ __2. the controller__: we use a controller for event handling of the device afte
 
 ### Simple example
 
-The "Simple sample" code is located in the [lib/device/simpleAccessory](lib/device/simpleAccessory) directory.
+The "Simple sample" code is located in the [lib/devices/simpleAccessory](lib/devices/simpleAccessory) directory.
 
 ### Complex example
 
-The "Complex sample" code is located in the [lib/device/discoverableLightDevice](lib/device/discoverableLightDevice) directory.
+The "Complex sample" code is located in the [lib/devices/discoverableLightDevice](lib/devices/discoverableLightDevice) directory.
 
 If the device requires a manual action before registering it (for example enable the discovery of the device), it's covered with a discovery step.
 
@@ -52,7 +52,7 @@ __This example has 2 devices:__
 
 ### Multi Device example
 This example demonstrates how to run multiple devices inside a single SDK server instance.  
-The "Multiple Devices sample" code is located in the [lib/device/multipleDevices](lib/device/multipleDevices) directory.
+The "Multiple Devices sample" code is located in the [lib/devices/multipleDevices](lib/devices/multipleDevices) directory.
 
 __This example has:__
 * Multiple devices with their own controllers
