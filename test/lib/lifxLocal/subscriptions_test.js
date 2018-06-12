@@ -1,10 +1,10 @@
 'use strict';
 
 const expect = require('chai').expect;
-const requireHelper = require('../../../require_helper.js');
-const Subscriptions = requireHelper('lib/devices/lifx-local/subscriptions');
+const requireHelper = require('../../require_helper.js');
+const Subscriptions = requireHelper('lib/lifxLocal/subscriptions');
 
-describe('./lib/devices/lifx-local/subscriptions', function() {
+describe('./lib/lifxLocal/subscriptions', function() {
   let subscriptions;
 
   beforeEach(function() {

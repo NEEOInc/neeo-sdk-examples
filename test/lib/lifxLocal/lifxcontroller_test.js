@@ -3,10 +3,10 @@
 const expect = require('chai').expect;
 const mockery = require('mockery');
 const sinon = require('sinon');
-const requireHelper = require('../../../require_helper.js');
+const requireHelper = require('../../require_helper.js');
 
-describe('./lib/devices/lifx-local/lifxcontroller.js', function() {
-  const sandbox = sinon.sandbox.create();
+describe('./lib/lifxLocal/lifxcontroller.js', function() {
+  const sandbox = sinon.createSandbox();
   let lifxController;
   let deviceId, value;
 
@@ -59,7 +59,7 @@ describe('./lib/devices/lifx-local/lifxcontroller.js', function() {
 
     mockery.registerMock('./lifxservice', LifxServiceMock);
 
-    lifxController = requireHelper('lib/devices/lifx-local/lifxcontroller');
+    lifxController = requireHelper('lib/lifxLocal/lifxcontroller');
     lifxController.initialise();
   });
 

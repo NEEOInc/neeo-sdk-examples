@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.50.5",
+  "version": "0.51.3",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "mocha --exit \"test/**/*.js\"",
     "jshint": "jshint --show-non-errors --verbose lib/**/*.js",
-    "start": "NEEO_DEVICES_DIRECTORY=\"./lib/devices\" NEEO_DEVICES_EXCLUDED_DIRECTORIES=[\"lifx-cloud\"] neeo-sdk start",
+    "start": "neeo-sdk start",
     "example:forwardaction": "node lib/forwardaction/index.js",
     "example:recipe": "node lib/recipe/listAllRecipes.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
@@ -28,12 +28,12 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "jshint": "^2.9.5",
-    "mocha": "^5.0.4",
+    "mocha": "^5.1.1",
     "mockery": "^2.1.0",
-    "sinon": "^4.4.2"
+    "sinon": "^5.1.0"
   },
   "neeoSdkOptions": {
-    "serverName": "myServer",
+    "serverName": "neeo-sdk-examples-server",
     "serverPort": 6336,
     "brainHost": "",
     "brainPort": ""

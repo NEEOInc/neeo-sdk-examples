@@ -4,12 +4,12 @@ const expect = require('chai').expect;
 const mockery = require('mockery');
 const sinon = require('sinon');
 const LifxMock = require('./lifxmock');
-const requireHelper = require('../../../require_helper.js');
-const LifxService = requireHelper('lib/devices/lifx-local/lifxservice');
+const requireHelper = require('../../require_helper.js');
+const LifxService = requireHelper('lib/lifxLocal/lifxservice');
 const neeoapi = require('neeo-sdk');
 
-describe('./lib/devices/lifx-local/lifxservice.js', function() {
-  const sandbox = sinon.sandbox.create();
+describe('./lib/lifxLocal/lifxservice.js', function() {
+  const sandbox = sinon.createSandbox();
   const ID = '0123deadbeef';
   let lifxService, deviceState;
   let clientState, onDuration, offDuration, clientParameter, ambientLight;
