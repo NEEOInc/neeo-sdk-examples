@@ -19,11 +19,11 @@
     "test": "mocha --exit \"test/**/*.js\"",
     "jshint": "jshint --show-non-errors --verbose lib/**/*.js",
     "start": "neeo-sdk start",
-    "example:forwardaction": "node lib/forwardaction/index.js",
-    "example:recipe": "node lib/recipe/listAllRecipes.js",
+    "example:forwardaction": "node scripts/forwardaction/index.js",
+    "example:recipe": "node scripts/recipe/listAllRecipes.js",
     "clean": "rm -rf ./dist && mkdir -p ./dist",
     "release": "npm run jshint && npm run clean && npm run release:copy",
-    "release:copy": "cp -r ./lib ./test ./dist && cp .travis.yml .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
+    "release:copy": "cp -r ./devices ./lib ./neeo-driver-example ./scripts ./test ./dist && cp .travis.yml .jshintrc .gitignore .editorconfig *.md package.json License ./dist"
   },
   "devDependencies": {
     "chai": "^4.1.2",
