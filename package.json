@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.51.3",
+  "version": "0.51.4",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "bluebird": "^3.5.0",
     "glob": "^7.1.2",
     "lifx-http-api": "^1.0.3",
-    "neeo-sdk": "NEEOInc/neeo-sdk#next",
+    "neeo-sdk": "*",
     "node-lifx": "^0.8.0"
   },
   "engines": {
