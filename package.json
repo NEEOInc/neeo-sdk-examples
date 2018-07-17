@@ -9,7 +9,7 @@
     "bluebird": "^3.5.0",
     "glob": "^7.1.2",
     "lifx-http-api": "^1.0.3",
-    "neeo-sdk": "*",
+    "neeo-sdk": "NEEOInc/neeo-sdk#next",
     "node-lifx": "^0.8.0",
     "nyc": "^12.0.2"
   },
