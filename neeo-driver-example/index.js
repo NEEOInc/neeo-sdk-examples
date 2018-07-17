@@ -1,7 +1,7 @@
 'use strict';
 
 const neeoapi = require('neeo-sdk');
-const ExampleController = require('./ExampleController');
+const ExampleController = require('./lib/ExampleController');
 
 const controller = ExampleController.build();
 

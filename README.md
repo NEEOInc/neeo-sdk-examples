@@ -31,25 +31,22 @@ Another way is to enable action forwarding to track what is happening on the Bra
 
 Another way to use the SDK is to add support for custom devices. 
 
+### Example SDK Drivers
+
+The source implementation of the example drivers are located in [lib/](lib/).
+
 ### Running the example SDK Drivers
 
-The devices are listed and exported in the file `devices/index.js`. They are exported through a `devices` Array in order for them to be available to the CLI. You can change it to remove the devices you don't want to see running or add your own ones.
-
-To start the SDK instance using the CLI, and register the devices to the first Brain found on the network, run the command:
+To start a server with the example SDK Drivers using the CLI, and register the devices to the first Brain found on the network, run the command:
 
 ```
 npm start
 ```
 
-To connect to a specific Brain you can configure options for the CLI in the `package.json` file, for example to connect to a Brain with the ip of 10.0.0.42 the brainHost can be defined to an ip:
+To connect to a specific Brain you can configure options for the CLI in the `package.json` file. For example to connect to a Brain with the ip of 10.0.0.42 change the line with brainHost to include the ip:
 
 ```
-"neeoSdkOptions": {
-  "serverName": "neeo-sdk-examples-server",
-  "serverPort": 6336,
   "brainHost": "10.0.0.42",
-  "brainPort": ""
-}
 ```
 
 ### Creating custom devices

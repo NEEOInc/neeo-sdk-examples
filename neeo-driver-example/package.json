@@ -1,12 +1,9 @@
 {
   "name": "neeo-driver-example",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Example NEEO SDK Community Driver",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples/neeo-driver-example",
-  "main": "devices/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "index.js",
   "private": false,
   "dependencies": {
     "neeo-sdk": "*"
