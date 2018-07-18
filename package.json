@@ -1,6 +1,6 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.51.8-rc1",
+  "version": "0.51.9",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
@@ -22,10 +22,7 @@
     "start": "neeo-sdk start",
     "example:forwardaction": "node scripts/forwardaction/index.js",
     "example:recipe": "node scripts/recipe/listAllRecipes.js",
-    "clean": "rm -rf ./dist && mkdir -p ./dist",
-    "release": "npm run jshint && npm run clean && npm run release:copy && npm run release:changedep",
-    "release:copy": "cp -r ./devices ./lib ./neeo-driver-example ./scripts ./test ./dist && cp .travis.yml .jshintrc .gitignore .editorconfig *.md package.json License ./dist",
-    "release:changedep": "node ./build/change-dependency.js"
+    "clean": "rm -rf ./dist && mkdir -p ./dist"
   },
   "devDependencies": {
     "chai": "^4.1.2",
