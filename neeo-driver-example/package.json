@@ -1,0 +1,17 @@
+{
+  "name": "neeo-driver-example",
+  "version": "0.1.0",
+  "description": "Example NEEO SDK Community Driver",
+  "repository": "https://github.com/NEEOInc/neeo-sdk-examples/neeo-driver-example",
+  "main": "index.js",
+  "private": false,
+  "dependencies": {
+    "neeo-sdk": "*"
+  },
+  "keywords": [
+    "neeo",
+    "neeo-driver"
+  ],
+  "author": "NEEO Inc",
+  "license": "MIT"
+}

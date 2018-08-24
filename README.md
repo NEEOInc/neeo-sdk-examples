@@ -10,7 +10,9 @@ To find out more about NEEO, the Brain and "The Thinking Remote" checkout https:
 
 ## Getting started
 
-* Run `npm install` to install needed dependencies.
+1. Checkout this repository locally.
+2. Open a terminal in the folder of the repository you checked out.
+3. Run `npm install` to install needed dependencies.
 
 ## Working with NEEO Brain Recipes
 
@@ -21,47 +23,44 @@ For example:
 * Get a list of recipes
 * Find out which recipes are currently powered on
 
-You can run this example via `npm run recipe`, the sample code is located in [lib/recipe/listAllRecipes.js](lib/recipe/listAllRecipes.js).
+You can run this example via `npm run example:recipe`, the sample code is located in [scripts/recipe/listAllRecipes.js](scripts/recipe/listAllRecipes.js).
 
-## Creating custom devices
+Another way is to enable action forwarding to track what is happening on the Brain (power on and power off of recipes and more). You can run that example via `npm run example:forwardaction`, the sample code is located in [scripts/forwardaction/](scripts/forwardaction/).
 
-Another way to use the SDK is to add support for custom devices. There's 2 main steps:
+## Adding custom devices to the NEEO Brain
 
-__1. the adapter__: the adapter defines what the custom device can do. We use a factory to simplify the creation of a device, set the handlers and register it with a running Brain.
+Another way to use the SDK is to add support for custom devices. 
 
-__2. the controller__: we use a controller for event handling of the device after it's registered.
+### Example SDK Drivers
 
-### Simple example
+The source implementation of the example drivers are located in [lib/](lib/).
 
-The "Simple sample" code is located in the [lib/devices/simpleAccessory](lib/devices/simpleAccessory) directory.
+### Running the example SDK Drivers
 
-### Complex example
-
-The "Complex sample" code is located in the [lib/devices/discoverableLightDevice](lib/devices/discoverableLightDevice) directory.
-
-If the device requires a manual action before registering it (for example enable the discovery of the device), it's covered with a discovery step.
-
-__This example has 2 devices:__
-* First device has:
-  * 1 slider
-* Second device has:
-  * 1 slider
-  * 1 switch
-  * 2 buttons
-  * 1 text label  
-
-### Multi Device example
-This example demonstrates how to run multiple devices inside a single SDK server instance.  
-The "Multiple Devices sample" code is located in the [lib/devices/multipleDevices](lib/devices/multipleDevices) directory.
-
-__This example has:__
-* Multiple devices with their own controllers
-
-## Running the examples
-
-The devices are listed and exported in the file `lib/devices/index.js`. They are exported through a `devices` Array in order for them to be available to the CLI. You can change it to remove the devices you don't want to see running or add your own ones.
-To start the SDK instance using the CLI, and register the devices to the first Brain found on the network, run the command:
+To start a server with the example SDK Drivers using the CLI, and register the devices to the first Brain found on the network, run the command:
 
 ```
-npm run cli:devices
+npm start
 ```
+
+To connect to a specific Brain you can configure options for the CLI in the `package.json` file. For example to connect to a Brain with the ip of 10.0.0.42 change the line with brainHost to include the ip:
+
+```
+  "brainHost": "10.0.0.42",
+```
+
+### Creating custom devices
+
+There's 2 main parts:
+
+__1. the adapter definition__: the adapter defines what the custom device can do. We use a factory to simplify the creation of a device, set the handlers and register it with a running Brain. This also exports your driver (allowing other tools like the CLI to run your driver)
+
+__2. the controller implementation__: the controller needs to implement all the capabilities defined by the adapter. It then handles the events and interacts with the NEEO Brain when a device is added to the Brain.
+
+You can find all the example devices in the [lib](lib) directory. You can also find some of the drivers implemented by the community on [NPM](https://www.npmjs.com/search?q=neeo-driver).
+
+#### Publishing NEEO Drivers
+
+If you implement a driver and share it with others we currently recommend publishing it to NPM as a module. Using the "neeo-driver-" prefix for the name will make it easy for others to find it.
+
+The [neeo-driver-example](neeo-driver-example) directory shows what a minimal self contained driver might look like.
