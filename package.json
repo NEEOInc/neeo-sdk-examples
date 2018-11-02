@@ -1,15 +1,15 @@
 {
   "name": "neeo-sdk-examples",
-  "version": "0.51.13",
+  "version": "0.52.15",
   "description": "NEEO Brain SDK Examples",
   "repository": "https://github.com/NEEOInc/neeo-sdk-examples",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.2",
     "glob": "^7.1.2",
     "lifx-http-api": "^1.0.3",
-    "neeo-sdk": "*",
+    "neeo-sdk": "NEEOInc/neeo-sdk#next",
     "node-lifx": "^0.8.0",
     "nyc": "^12.0.2"
   },
@@ -22,10 +22,7 @@
     "start": "neeo-sdk start",
     "example:forwardaction": "node scripts/forwardaction/index.js",
     "example:recipe": "node scripts/recipe/listAllRecipes.js",
-    "clean": "rm -rf ./dist && mkdir -p ./dist",
-    "release": "npm run jshint && npm run clean && npm run release:copy && npm run release:changedep",
-    "release:copy": "cp -r ./devices ./lib ./neeo-driver-example ./scripts ./test ./dist && cp .travis.yml .jshintrc .gitignore .editorconfig *.md package.json License ./dist",
-    "release:changedep": "node ./build/change-dependency.js"
+    "clean": "rm -rf ./dist && mkdir -p ./dist"
   },
   "devDependencies": {
     "chai": "^4.1.2",
