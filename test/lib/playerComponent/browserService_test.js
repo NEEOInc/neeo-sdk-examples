@@ -2,7 +2,6 @@
 
 const sinon = require('sinon');
 const chai = require('chai');
-chai.use(require('sinon-chai'));
 const expect = chai.expect;
 const requireHelper = require('../../require_helper.js');
 const browserService = requireHelper('lib/playerComponent/browserService');
@@ -88,7 +87,12 @@ describe('./lib/playerComponent/browserService.js', function () {
 
       return browserService.browse(listOptions)
         .then((list) => {
-          expect(list).to.deep.equal(expectedList);
+          expect(Object.keys(list).length).to.equal(Object.keys(expectedList).length);
+          expect(list.title).to.equal(expectedList.title);
+          expect(list.browseIdentifier).to.equal(expectedList.browseIdentifier);
+          expect(list.totalMatchingItems).to.equal(expectedList.totalMatchingItems);
+          expect(list.items).to.deep.equal(expectedList.items);
+          expect(list._meta).to.deep.equal(expectedList._meta);
         });
     });
 
@@ -138,7 +142,12 @@ describe('./lib/playerComponent/browserService.js', function () {
 
       return browserService.browse(listOptions)
         .then((list) => {
-          expect(list).to.deep.equal(expectedList);
+          expect(Object.keys(list).length).to.equal(Object.keys(expectedList).length);
+          expect(list.title).to.equal(expectedList.title);
+          expect(list.browseIdentifier).to.equal(expectedList.browseIdentifier);
+          expect(list.totalMatchingItems).to.equal(expectedList.totalMatchingItems);
+          expect(list.items).to.deep.equal(expectedList.items);
+          expect(list._meta).to.deep.equal(expectedList._meta);
         });
     });
   });
