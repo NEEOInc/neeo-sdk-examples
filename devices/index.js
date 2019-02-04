@@ -2,6 +2,7 @@
 
 const accountRegistration = require('../lib/accountRegistration');
 const alwaysOnDevices = require('../lib/alwaysOnDevice');
+const favoritesHandler = require('../lib/favoritesHandler');
 const fileBrowser = require('../lib/fileBrowser');
 const lifxLocal = require('../lib/lifxLocal');
 const playerComponent = require('../lib/playerComponent');
@@ -14,6 +15,7 @@ module.exports = {
   devices: [
     ...accountRegistration.devices,
     ...alwaysOnDevices.devices,
+    ...favoritesHandler.devices,
     ...fileBrowser.devices,
     ...securityCodeRegistration.devices,
     ...lifxLocal.devices,
